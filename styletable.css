@@ -1,0 +1,21 @@
+table{
+    width: 600px;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: bisque;
+}
+td,th{
+    border:1px solid royalblue;
+}
+tr:hover{
+    background-color: darkgray;
+}
+tr:nth-child(even){
+    background: #cccccc;
+}
+tr:nth-child(odd){
+    background: turquoise;
+}
+tr:nth-child(1){
+    background: moccasin;
+}
