@@ -1,0 +1,12 @@
+#menu{
+    width:400px;
+    margin:auto;
+}
+
+#menu ul{
+    list-style:none;
+}
+
+#menu li{
+    display:inline;
+}
