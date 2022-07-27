@@ -1,0 +1,61 @@
+form{
+    background-color: floralwhite;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    border: 1px solid brown;
+    border-radius: 20px 20px;
+}
+input{
+    background-color:#FFF3F3;
+    padding:3px;
+    border:1px solid #F5C5C5;
+    border-radius:5px;
+    height: 20px;
+    width:200px;
+ }
+label {
+    margin-top:10px;
+    font-weight: bold;
+    display: inline-block;
+    width: 125px;
+ }
+.field{
+    margin-bottom: 15px;
+    padding: 8px;
+}
+#bouton{
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px;
+    height: 30px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 150px;
+    border-radius: 30px 30px;
+}
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+form>h2{
+    text-align: center;
+    background-color: brown;
+    color: white;
+    margin-top: 0px;
+    border-top-left-radius: 20px 20px;
+    border-top-right-radius: 20px 20px;
+    padding: 4px;
+}
+input:invalid{
+    border:2px solid red;
+}
+.field>input:valid{
+    background-color: white;
+}
+input[type="radio"]{
+    width: 20px;
+    color: brown;
+}

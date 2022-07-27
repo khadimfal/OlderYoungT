@@ -1,0 +1,10 @@
+
+#Create MySQL Image
+FROM mysql
+#MAINTAINER jojozhuang@gmail.com
+ENV MYSQL_ROOT_PASSWORD=jsppassword
+ENV MYSQL_DATABASE=seminaire_db
+ENV MYSQL_USER=root
+ENV MYSQLPASSWORD=jsppassword
+#RUN chmod 755 /var/lib/mysql
+EXPOSE 3306

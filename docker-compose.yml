@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  php-apache-environment:
+      container_name: oldyoungAPP
+      build:
+          context: /Users/macbook/DevOps/Projet/OlderYoungT/seminaire_pdo
+          dockerfile: dockerfile
+      depends_on:
+          - database
+      volumes:
+          - ./seminaire_pdo:/var/www/html/
+      ports:
+          - 8000:80
+  database:
+      restart: always
+      container_name: oldyoungDB
+      build:
+          context: /Users/macbook/DevOps/Projet/OlderYoungT/mysql
+          dockerfile: dockerfile
+      ports: 
+          - "9000:3306"
+      environment:
+          MYSQL_DATABASE: seminaire_db
+          MYSQL_USER: root
+          MYSQL_PASSWORD: jsppassword
+          MYSQL_ROOT_PASSWORD: jsppassword
+      volumes:
+          - ./seminaire_db.sql:/var/lib/mysql
+        #  - persistent:/var/lib/mysql
+      networks:
+          - default
+  phpmyadmin:
+      container_name: oldyoungDBMyAdmin
+      image: phpmyadmin/phpmyadmin
+      links: 
+          - database:database
+      ports:
+          - 8001:80
+      environment:
+          MYSQL_USER: root
+          MYSQL_PASSWORD: jsppassword
+          MYSQL_ROOT_PASSWORD: jsppassword
+volumes:
+  persistent:
+    
