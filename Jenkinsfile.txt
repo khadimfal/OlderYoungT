@@ -37,8 +37,8 @@
                 echo 'Connexion à Docker Hub ....'
                 sh 'docker login -u oldyoungteam -p oldyoungteam123'
                 echo 'Tagging appli_web ....'
-     		sh 'docker tag oldyoungAPP oldyoungteam/oldyoungapp:first'
-     		sh 'docker tag mysql oldyoungteam/oldyoungdb:1.0'
+     		sh 'docker tag oldyoungapp oldyoungteam/oldyoungapp:first'
+     		sh 'docker tag mysql oldyoungteam/oldyoungdb:first'
      	       }
         }
 
