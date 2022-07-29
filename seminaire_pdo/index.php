@@ -6,7 +6,7 @@ if(isset($_SESSION['login'])){//Si on est déjà authentifié
 }
 if(isset($_POST['Bconnexion'])){//SI on clique sur le bouton connexion
     //Appel du fichier de connexion à la bd
-    require_once('../connexion_db/conn_db.php');
+    require_once('./conn_db.php');
     //Récupération des données par la méthode POST
     $login=$_POST['login'];
     $mdp=$_POST['mdp'];

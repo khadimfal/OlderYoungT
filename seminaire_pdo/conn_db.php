@@ -2,7 +2,7 @@
 //Connexion et sélection de la source de données
 $login = 'userseminaire';
 $pwd = 'passer';
-$dsn = 'mysql:host=localhost;dbname=seminaire_db';
+$dsn = 'mysql:host=oldyoungdb;dbname=seminaire_db';
 try {
     $pdo = new PDO($dsn, $login, $pwd);
 }

@@ -1,0 +1,58 @@
+﻿pipeline {
+    agent any
+
+   
+      stages {
+        
+        stage('Build de l’image de l’application seminaire_pdo') {
+            steps {
+                echo 'Building the app image ....'
+                sh 'docker build -f seminaire_pdo/dockerfile -t	oldyoungAPP .'			     	oldyoungAPP .'
+            }
+        }
+        
+        stage('Build de l’image de la base de donnée seminaire_db') {
+            steps {
+                echo 'Building the database image ....'
+                sh 'docker build -f mysql/dockerfile -t oldyoungDB .'
+            }
+        }
+
+        stage('Déploiement des services via Docker Compose') {
+            steps {
+                echo 'Service deployment with Docker Compose ....'
+                sh 'docker-compose up -d '                
+            }
+        }
+
+        stage('Test de l’application avec curl et navigateur web') {
+            steps {
+                echo 'Testing app with curl and web navigator ....'
+                sh 'curl http://localhost:8000/ -I'
+            }
+        }
+
+        stage('Tag des images Docker') {
+            steps {
+                echo 'Connexion à Docker Hub ....'
+                sh 'docker login -u oldyoungteam -p oldyoungteam123'
+                echo 'Tagging appli_web ....'
+     		sh 'docker tag oldyoungAPP oldyoungteam/oldyoungapp:first'
+     		sh 'docker tag mysql oldyoungteam/oldyoungdb:1.0'
+     	       }
+        }
+
+        stage('Push des images Docker sur Docker Hub') {
+            steps {
+                echo 'Pushing the app to Docker Hub'
+                sh 'docker push oldyoungteam/oldyoungapp:first'
+                sh 'docker push oldyoungteam/oldyoungdb:first'
+            }
+        }
+         
+
+    }   
+        
+    }
+
+
